@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased font-sans bg-paper text-ink selection:bg-editorial-ochre/20;
+  }
+  
+  /* Reset some default Vite styling that centers everything */
+  #root {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+    border-inline: none;
+    min-height: 100vh;
+    display: block;
+  }
+}
+
+/* Custom editorial styles */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #11100F;
+}
+::-webkit-scrollbar-thumb {
+  background: #E2DDD5;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #2C2A27;
+}
+
+/* Custom chart adjustments */
+.recharts-default-tooltip {
+  background-color: #FAF8F5 !important;
+  border: 1px solid #E2DDD5 !important;
+  color: #1E1C19 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+.dark .recharts-default-tooltip {
+  background-color: #1C1B1A !important;
+  border: 1px solid #2C2A27 !important;
+  color: #EBE7E0 !important;
+}
+
+/* Editorial layout print style overrides */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
